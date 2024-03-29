@@ -5,11 +5,11 @@ from typing import AsyncGenerator, Optional
 
 import aiohttp
 
-from Core.BackgroundService import BackgroundService
-from Messages.ConnectMessage import ConnectRequest, ConnectResponse
-from configuration import Configuration
-from Messages.BaseMessage import RequestBase, ResponseBase
-from Core.services import IManagedConnection, IMessageHandler
+from SunGrowDataCollector.Core.BackgroundService import BackgroundService
+from SunGrowDataCollector.Messages.ConnectMessage import ConnectRequest, ConnectResponse
+from SunGrowDataCollector.configuration import Configuration
+from SunGrowDataCollector.Messages.BaseMessage import RequestBase, ResponseBase
+from SunGrowDataCollector.Core.services import IManagedConnection, IMessageHandler
 
 _LOGGER = logging.getLogger(__name__)
 

@@ -1,7 +1,7 @@
 import logging
-from Messages.BaseMessage import ResponseBase
-from Messages.StatisticsMessage import StatisticsResponse
-from Core.services import IMessageHandler
+from SunGrowDataCollector.Messages.BaseMessage import ResponseBase
+from SunGrowDataCollector.Messages.StatisticsMessage import StatisticsResponse
+from SunGrowDataCollector.Core.services import IMessageHandler
 
 _LOGGER = logging.getLogger(__name__)
 

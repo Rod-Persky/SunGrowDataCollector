@@ -1,7 +1,7 @@
 from abc import abstractmethod
 import asyncio
 import logging
-from Core.HostedService import HostedService
+from SunGrowDataCollector.Core.HostedService import HostedService
 
 _LOGGER = logging.getLogger(__name__)
 

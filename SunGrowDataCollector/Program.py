@@ -1,12 +1,12 @@
-from Core.HostedService import HostedService
-from Handlers.MessageRouter import MessageRouter
-from Handlers.RuntimeMessageHandler import RuntimeMessageHandler
-from Handlers.StateMessageHandler import StateMessageHandler
-from Handlers.StatisticsMessageHandler import StatisticsMessageHandler
-from Services.DataRequestorService import DataRequestorService
-from Services.ManagedConnection import ManagedConnection
-from Services.MessageRoutingService import MessageRoutingService
-from configuration import Configuration
+from SunGrowDataCollector.Core.HostedService import HostedService
+from SunGrowDataCollector.Handlers.MessageRouter import MessageRouter
+from SunGrowDataCollector.Handlers.RuntimeMessageHandler import RuntimeMessageHandler
+from SunGrowDataCollector.Handlers.StateMessageHandler import StateMessageHandler
+from SunGrowDataCollector.Handlers.StatisticsMessageHandler import StatisticsMessageHandler
+from SunGrowDataCollector.Services.DataRequestorService import DataRequestorService
+from SunGrowDataCollector.Services.ManagedConnection import ManagedConnection
+from SunGrowDataCollector.Services.MessageRoutingService import MessageRoutingService
+from SunGrowDataCollector.configuration import Configuration
 
 
 class Program(HostedService):

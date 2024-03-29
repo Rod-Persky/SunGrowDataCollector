@@ -1,6 +1,6 @@
-from typing import Generator, Generic, Optional
+from typing import Generator, Optional
 
-from Messages.BaseMessage import RequestBase, ResponseBase
+from SunGrowDataCollector.Messages.BaseMessage import RequestBase, ResponseBase
 
 class RuntimeRequest(RequestBase):
     def __init__(self, lang: str, token: str):

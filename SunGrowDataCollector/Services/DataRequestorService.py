@@ -1,11 +1,11 @@
 import asyncio
 import logging
-from Core.BackgroundService import BackgroundService
-from Messages.RuntimeMessage import RuntimeRequest
-from Messages.StateMessage import StateRequest
-from Messages.StatisticsMessage import StatisticsRequest
-from configuration import Configuration
-from Core.services import IManagedConnection
+from SunGrowDataCollector.Core.BackgroundService import BackgroundService
+from SunGrowDataCollector.Messages.RuntimeMessage import RuntimeRequest
+from SunGrowDataCollector.Messages.StateMessage import StateRequest
+from SunGrowDataCollector.Messages.StatisticsMessage import StatisticsRequest
+from SunGrowDataCollector.configuration import Configuration
+from SunGrowDataCollector.Core.services import IManagedConnection
 
 
 _LOGGER = logging.getLogger(__name__)

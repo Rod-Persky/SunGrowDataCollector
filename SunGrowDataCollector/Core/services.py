@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from Messages.BaseMessage import RequestBase, ResponseBase
+from SunGrowDataCollector.Messages.BaseMessage import RequestBase, ResponseBase
 
 class IMessageRouter(ABC):
     """Interface for message routing."""
