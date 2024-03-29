@@ -7,6 +7,8 @@ setup(
     url='https://github.com/MichaelKim0407/tutorial-pip-package',
     author='Rod Persky',
     author_email='rodney.persky@gmail.com',
+    long_description=open('README.md').read(),
+    long_description_content_type="text/markdown"
 
     packages=find_packages(),
     
