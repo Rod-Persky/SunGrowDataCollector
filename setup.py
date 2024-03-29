@@ -4,7 +4,7 @@ setup(
     name='SunGrowDataCollector',
     version="0.0.1",
 
-    url='https://github.com/MichaelKim0407/tutorial-pip-package',
+    url='https://github.com/Rod-Persky/SunGrowDataCollector',
     author='Rod Persky',
     author_email='rodney.persky@gmail.com',
     long_description=open('README.md').read(),
@@ -24,7 +24,6 @@ setup(
     
     classifiers=[
         'Intended Audience :: Developers',
-
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
     ],
