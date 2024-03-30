@@ -1,5 +1,4 @@
 from SunGrowDataCollector.Client.Handlers.StateMessageHandler import StateMessageHandler, StateResponse
-from SunGrowDataCollector.StatsDCollector.StatsDConnection import StatsDConnection
 
 import opentelemetry.metrics
 
