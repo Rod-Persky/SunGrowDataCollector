@@ -11,8 +11,8 @@
                 "PYTHONPATH": "${workspaceFolder}"
             },
             "args": [
-                "--config",
-                "${workspaceFolder}/configurations/StatsDCollector.config.ini"
+                "--config", "${workspaceFolder}/configurations/StatsDCollector.config.ini",
+                "--logconfig", "${workspaceFolder}/configurations/logging.config.ini"
             ]
         },
         {
@@ -25,8 +25,8 @@
                 "PYTHONPATH": "${workspaceFolder}"
             },
             "args": [
-                "--config",
-                "${workspaceFolder}/configurations/StatsDCollector.config.ini"
+                "--config", "${workspaceFolder}/configurations/StatsDCollector.config.ini",
+                "--logconfig", "${workspaceFolder}/configurations/logging.config.ini"
             ]
         },
         {
@@ -39,8 +39,8 @@
                 "PYTHONPATH": "${workspaceFolder}"
             },
             "args": [
-                "--config",
-                "${workspaceFolder}/configurations/StatsDCollector.config.ini"
+                "--config", "${workspaceFolder}/configurations/StatsDCollector.config.ini",
+                "--logconfig", "${workspaceFolder}/configurations/logging.config.ini"
             ]
         }
     ]

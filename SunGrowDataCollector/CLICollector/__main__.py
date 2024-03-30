@@ -1,17 +1,25 @@
 import asyncio
+import os
 from signal import SIGINT, SIGTERM
 
 from SunGrowDataCollector.CLICollector.Program import Program
 from SunGrowDataCollector.CLICollector.RootConfiguration import LoadConfigurationFromIniFile
 
-import logging
-logging.basicConfig(encoding='utf-8', level=logging.DEBUG)
-
+# Parse command line arguments
 import argparse
 parser = argparse.ArgumentParser(description='SunGrowDataCollector CLI Collector')
 parser.add_argument('--config', type=str, help='Path to the configuration file', required=True)
+parser.add_argument('--logconfig', type=str, help='Path to the log configuration file', required=False, default='logging.ini')
 args = parser.parse_args()
 
+# Configure logging
+import logging.config
+if os.path.exists(args.logconfig):
+    logging.config.fileConfig(args.logconfig, disable_existing_loggers=True)
+else:
+    logging.basicConfig(encoding='utf-8', level=logging.DEBUG)
+
+# Load configuration from file
 config = LoadConfigurationFromIniFile(args.config)
 
 
