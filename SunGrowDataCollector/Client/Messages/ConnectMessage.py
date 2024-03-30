@@ -1,6 +1,6 @@
 from typing import Optional
 
-from SunGrowDataCollector.Messages.BaseMessage import RequestBase, ResponseBase
+from SunGrowDataCollector.Client.Messages.BaseMessage import RequestBase, ResponseBase
 
 
 class ConnectRequest(RequestBase):

@@ -1,6 +1,6 @@
 from typing import Generator, Optional
 
-from SunGrowDataCollector.Messages.BaseMessage import RequestBase, ResponseBase
+from SunGrowDataCollector.Client.Messages.BaseMessage import FloatConversionHelper, RequestBase, ResponseBase
 
 class StatisticsRequest(RequestBase):
     def __init__(self, lang: str, token: str):
@@ -22,8 +22,8 @@ class DeviceStatisticsResponse:
         self._data = data
     
     @property
-    def today_energy(self):
-        return self._data.get("today_energy")
+    def today_energy(self) -> Optional[float]:
+        return FloatConversionHelper(self._data.get("today_energy"))
     
     @property
     def today_energy_unit(self):
@@ -31,7 +31,7 @@ class DeviceStatisticsResponse:
     
     @property
     def total_energy(self):
-        return self._data.get("total_energy")
+        return FloatConversionHelper(self._data.get("total_energy"))
     
     @property
     def total_energy_unit(self):
@@ -39,7 +39,7 @@ class DeviceStatisticsResponse:
     
     @property
     def curr_power(self):
-        return self._data.get("curr_power")
+        return FloatConversionHelper(self._data.get("curr_power"))
     
     @property
     def curr_power_unit(self):
@@ -47,7 +47,7 @@ class DeviceStatisticsResponse:
     
     @property
     def curr_reactive(self):
-        return self._data.get("curr_reactive")
+        return FloatConversionHelper(self._data.get("curr_reactive"))
     
     @property
     def curr_reactive_unit(self):
@@ -55,7 +55,7 @@ class DeviceStatisticsResponse:
     
     @property
     def rated_power(self):
-        return self._data.get("rated_power")
+        return FloatConversionHelper(self._data.get("rated_power"))
     
     @property
     def rated_power_unit(self):
@@ -63,7 +63,7 @@ class DeviceStatisticsResponse:
     
     @property
     def rated_reactive(self):
-        return self._data.get("rated_reactive")
+        return FloatConversionHelper(self._data.get("rated_reactive"))
     
     @property
     def rated_reactive_unit(self):
@@ -71,7 +71,7 @@ class DeviceStatisticsResponse:
     
     @property
     def adjust_power_uplimit(self):
-        return self._data.get("adjust_power_uplimit")
+        return FloatConversionHelper(self._data.get("adjust_power_uplimit"))
     
     @property
     def adjust_power_uplimit_unit(self):
@@ -79,7 +79,7 @@ class DeviceStatisticsResponse:
     
     @property
     def adjust_reactive_uplimit(self):
-        return self._data.get("adjust_reactive_uplimit")
+        return FloatConversionHelper(self._data.get("adjust_reactive_uplimit"))
     
     @property
     def adjust_reactive_uplimit_unit(self):
@@ -87,7 +87,7 @@ class DeviceStatisticsResponse:
     
     @property
     def adjust_reactive_lowlimit(self):
-        return self._data.get("adjust_reactive_lowlimit")
+        return FloatConversionHelper(self._data.get("adjust_reactive_lowlimit"))
     
     @property
     def adjust_reactive_lowlimit_unit(self):

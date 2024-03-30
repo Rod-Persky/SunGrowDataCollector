@@ -6,10 +6,10 @@ from typing import AsyncGenerator, Optional
 import aiohttp
 
 from SunGrowDataCollector.Core.BackgroundService import BackgroundService
-from SunGrowDataCollector.Messages.ConnectMessage import ConnectRequest, ConnectResponse
-from SunGrowDataCollector.configuration import Configuration
-from SunGrowDataCollector.Messages.BaseMessage import RequestBase, ResponseBase
-from SunGrowDataCollector.Core.services import IManagedConnection, IMessageHandler
+from SunGrowDataCollector.Client.Messages.ConnectMessage import ConnectRequest, ConnectResponse
+from SunGrowDataCollector.Client.Configuration import Configuration
+from SunGrowDataCollector.Client.Messages.BaseMessage import RequestBase, ResponseBase
+from SunGrowDataCollector.Client.Services.IManagedConnection import IManagedConnection
 
 _LOGGER = logging.getLogger(__name__)
 

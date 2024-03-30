@@ -1,11 +1,11 @@
 import asyncio
 import logging
 from SunGrowDataCollector.Core.BackgroundService import BackgroundService
-from SunGrowDataCollector.Messages.RuntimeMessage import RuntimeRequest
-from SunGrowDataCollector.Messages.StateMessage import StateRequest
-from SunGrowDataCollector.Messages.StatisticsMessage import StatisticsRequest
-from SunGrowDataCollector.configuration import Configuration
-from SunGrowDataCollector.Core.services import IManagedConnection
+from SunGrowDataCollector.Client.Messages.RuntimeMessage import RuntimeRequest
+from SunGrowDataCollector.Client.Messages.StateMessage import StateRequest
+from SunGrowDataCollector.Client.Messages.StatisticsMessage import StatisticsRequest
+from SunGrowDataCollector.Client.Configuration import Configuration
+from SunGrowDataCollector.Client.Services.IManagedConnection import IManagedConnection
 
 
 _LOGGER = logging.getLogger(__name__)

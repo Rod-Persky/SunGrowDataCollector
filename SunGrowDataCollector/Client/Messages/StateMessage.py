@@ -1,6 +1,6 @@
 from typing import Optional
 
-from SunGrowDataCollector.Messages.BaseMessage import RequestBase, ResponseBase
+from SunGrowDataCollector.Client.Messages.BaseMessage import FloatConversionHelper, RequestBase, ResponseBase
 
 class StateRequest(RequestBase):
     def __init__(self, lang: str, token: str):
@@ -43,43 +43,43 @@ class StateResponse(ResponseBase):
     
     @property
     def total_fault(self):
-        return self._data.get("total_fault")
+        return FloatConversionHelper(self._data.get("total_fault"))
     
     @property
     def total_alarm(self):
-        return self._data.get("total_alarm")
+        return FloatConversionHelper(self._data.get("total_alarm"))
     
     @property
     def wireless_conn_sts(self):
-        return self._data.get("wireless_conn_sts")
+        return FloatConversionHelper(self._data.get("wireless_conn_sts"))
     
     @property
     def wifi_conn_sts(self):
-        return self._data.get("wifi_conn_sts")
+        return FloatConversionHelper(self._data.get("wifi_conn_sts"))
     
     @property
     def eth_conn_sts(self):
-        return self._data.get("eth_conn_sts")
+        return FloatConversionHelper(self._data.get("eth_conn_sts"))
     
     @property
     def eth2_conn_sts(self):
-        return self._data.get("eth2_conn_sts")
+        return FloatConversionHelper(self._data.get("eth2_conn_sts"))
     
     @property
     def wireless_cmd(self):
-        return self._data.get("wireless_cmd")
+        return FloatConversionHelper(self._data.get("wireless_cmd"))
     
     @property
     def wifi_cmd(self):
-        return self._data.get("wifi_cmd")
+        return FloatConversionHelper(self._data.get("wifi_cmd"))
     
     @property
     def cloud_conn_sts(self):
-        return self._data.get("cloud_conn_sts")
+        return FloatConversionHelper(self._data.get("cloud_conn_sts"))
     
     @property
     def server_net_type(self):
-        return self._data.get("server_net_type")
+        return FloatConversionHelper(self._data.get("server_net_type"))
 
     def Validate(self):
         return (self.service is not None

@@ -1,6 +1,6 @@
 from typing import Generator, Optional
 
-from SunGrowDataCollector.Messages.BaseMessage import RequestBase, ResponseBase
+from SunGrowDataCollector.Client.Messages.BaseMessage import FloatConversionHelper, RequestBase, ResponseBase
 
 class RuntimeRequest(RequestBase):
     def __init__(self, lang: str, token: str):
@@ -68,7 +68,7 @@ class DeviceRuntimeResponse:
     
     @property
     def today_energy(self):
-        return self._data.get("today_energy")
+        return FloatConversionHelper(self._data.get("today_energy"))
     
     @property
     def today_energy_unit(self):
@@ -76,7 +76,7 @@ class DeviceRuntimeResponse:
     
     @property
     def total_energy(self):
-        return self._data.get("total_energy")
+        return FloatConversionHelper(self._data.get("total_energy"))
     
     @property
     def total_energy_unit(self):
@@ -92,7 +92,7 @@ class DeviceRuntimeResponse:
     
     @property
     def curr_power(self):
-        return self._data.get("curr_power")
+        return FloatConversionHelper(self._data.get("curr_power"))
     
     @property
     def curr_power_unit(self):
@@ -100,7 +100,7 @@ class DeviceRuntimeResponse:
     
     @property
     def reactive_power(self):
-        return self._data.get("reactive_power")
+        return FloatConversionHelper(self._data.get("reactive_power"))
     
     @property
     def reactive_power_unit(self):

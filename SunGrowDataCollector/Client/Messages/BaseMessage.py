@@ -49,10 +49,8 @@ class RequestBase(ABC):
         pass
 
 
-
-    
-
-
-
-
+def FloatConversionHelper(data: Optional[str]) -> Optional[float]:
+    if data is None:
+        return None
+    return float(data)
     

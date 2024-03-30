@@ -1,14 +1,18 @@
 import asyncio
 from signal import SIGINT, SIGTERM
 
-from SunGrowDataCollector.Program import Program
-from SunGrowDataCollector.configuration import Configuration
+from SunGrowDataCollector.CLICollector.Program import Program
+from SunGrowDataCollector.CLICollector.RootConfiguration import LoadConfigurationFromIniFile
 
 import logging
 logging.basicConfig(encoding='utf-8', level=logging.DEBUG)
 
+import argparse
+parser = argparse.ArgumentParser(description='SunGrowDataCollector CLI Collector')
+parser.add_argument('--config', type=str, help='Path to the configuration file', required=True)
+args = parser.parse_args()
 
-config = Configuration()
+config = LoadConfigurationFromIniFile(args.config)
 
 
 async def main():

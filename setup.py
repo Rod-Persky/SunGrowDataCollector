@@ -20,9 +20,15 @@ setup(
         'aiohttp>=3.9.3'
     ],
     
+    extras_require = {
+        "statsd": ["statsd>=4.0.1"]
+    },
+    
+    
     entry_points={
         'console_scripts': [
-            'sungrowdatacollector=SunGrowDataCollector.main:startup',
+            'sungrowdataclicolletor=SunGrowDataCollector.CLICollector.__main__:startup',
+            'sungrowdatastatsdcolletor=SunGrowDataCollector.StatsDCollector.__main__:startup [statsd]',
         ],
     },
     
