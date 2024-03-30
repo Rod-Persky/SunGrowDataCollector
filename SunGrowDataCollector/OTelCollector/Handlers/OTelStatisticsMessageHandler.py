@@ -1,5 +1,4 @@
 from SunGrowDataCollector.Client.Handlers.StatisticsMessageHandler import StatisticsMessageHandler, StatisticsResponse
-from SunGrowDataCollector.OTelCollector import OTelProvider
 
 import opentelemetry.metrics
 
