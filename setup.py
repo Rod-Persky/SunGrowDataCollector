@@ -1,8 +1,12 @@
 from setuptools import find_packages, setup
+import os
+
+# Get GitVersion_MajorMinorPatch from environment
+gitversion = os.environ.get('GitVersion_MajorMinorPatch', '0.0.0')
 
 setup(
     name='SunGrowDataCollector',
-    version="0.0.2",
+    version=gitversion,
 
     url='https://github.com/Rod-Persky/SunGrowDataCollector',
     author='Rod Persky',
