@@ -56,6 +56,7 @@ class ManagedConnection(BackgroundService, IManagedConnection):
         configuration provided during initialization.
 
         """
+        _LOGGER.info(f"Connecting to {self._configuration.GenerateWebsocktUri()}")
         self._session = aiohttp.ClientSession()
         self._ws = await self._session.ws_connect(self._configuration.GenerateWebsocktUri())
         self._state = ConnectionState.LINKESTABLISHING
@@ -67,6 +68,12 @@ class ManagedConnection(BackgroundService, IManagedConnection):
         the connection.
 
         """
+        if self._session.closed or self._ws.closed:
+            _LOGGER.error(f"Connection closed before establishing, setting connection as faulted")
+            self._state = ConnectionState.FAULTED
+            return
+        
+        _LOGGER.info("Establishing connection")
         request = ConnectRequest(self._configuration.LANG, self._configuration.TOKEN)
         await self._ws.send_json(request.Serialise())
         self._state = ConnectionState.CONNECTING
@@ -79,6 +86,7 @@ class ManagedConnection(BackgroundService, IManagedConnection):
 
         """
         if self._state == ConnectionState.CONNECTED and self._ws.closed:
+            _LOGGER.error(f"Websocket Connection closed, setting connection as faulted")
             self._state = ConnectionState.FAULTED
 
     async def Disconnect(self):
@@ -88,6 +96,7 @@ class ManagedConnection(BackgroundService, IManagedConnection):
         resources.
 
         """
+        _LOGGER.info("Disconnecting")
         await self._ws.close()
         await self._session.close()
         self._state = ConnectionState.DISCONNECTED
@@ -122,7 +131,7 @@ class ManagedConnection(BackgroundService, IManagedConnection):
 
         """
         if self._state == ConnectionState.CONNECTED:
-            _LOGGER.info(f"Sending message")
+            _LOGGER.debug(f"Sending message")
             try:
                 await self._ws.send_json(message.Serialise())
             except ConnectionResetError:
@@ -144,6 +153,7 @@ class ManagedConnection(BackgroundService, IManagedConnection):
         if response.Validate():
             if response.message == "success":
                 self._state = ConnectionState.CONNECTED
+                _LOGGER.info(f"Connection established with data {response._data}")
             else:
                 self._state = ConnectionState.FAULTED
 
@@ -166,8 +176,14 @@ class ManagedConnection(BackgroundService, IManagedConnection):
             if response.service == "connect":
                 self.ProcessConnectMessage(response)
                 return None
+            if response.service == "notice":
+                _LOGGER.warn(f"Notice message received: {message.json()}")
+                return response
 
             return response
+        else:
+            _LOGGER.error(f"Invalid message received: {message.json()}")
+            return None
 
     async def GetMessages(self) -> AsyncGenerator[ResponseBase, None]:
         """Get all messages from the WebSocket server.

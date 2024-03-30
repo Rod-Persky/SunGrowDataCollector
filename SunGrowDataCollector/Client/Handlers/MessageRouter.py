@@ -22,7 +22,7 @@ class MessageRouter(IMessageRouter):
             if messageWasHandled == True:
                 return
         
-        _LOGGER.error("MessageRouter: No handler found for message")
+        _LOGGER.error(f"MessageRouter: No handler found for message {message._data}")
         
             
         
