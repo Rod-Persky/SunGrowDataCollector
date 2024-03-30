@@ -2,11 +2,32 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "main",
+            "name": "CLICollector",
             "type": "debugpy",
             "request": "launch",
-            "program": "SunGrowDataCollector/main.py",
-            "console": "integratedTerminal"
+            "program": "SunGrowDataCollector/CLICollector",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": [
+                "--config",
+                "${workspaceFolder}/configurations/StatsDCollector.config.ini"
+            ]
+        },
+        {
+            "name": "StatsDCollector",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "SunGrowDataCollector/StatsDCollector",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": [
+                "--config",
+                "${workspaceFolder}/configurations/StatsDCollector.config.ini"
+            ]
         }
     ]
 }

@@ -1,20 +1,19 @@
 import logging
-from SunGrowDataCollector.Messages.BaseMessage import ResponseBase
-from SunGrowDataCollector.Messages.StatisticsMessage import StatisticsResponse
-from SunGrowDataCollector.Core.services import IMessageHandler
+from SunGrowDataCollector.Client.Messages.BaseMessage import ResponseBase
+from SunGrowDataCollector.Client.Messages.StatisticsMessage import StatisticsResponse
+from SunGrowDataCollector.Client.Handlers.IMessageHandler import IMessageHandler
 
 _LOGGER = logging.getLogger(__name__)
 
 
-class StatisticsMessageHandler(IMessageHandler):
+class StatisticsMessageHandler(IMessageHandler[StatisticsResponse]):
     """
     Handles statistics messages.
 
     This class implements the IMessageHandler interface and provides the functionality to handle statistics messages.
     """
-
-    def __init__(self):
-        pass
+    async def OnMessage(self, message: StatisticsResponse):
+        print(message._data)
 
     async def HandleMessage(self, message : ResponseBase) -> bool:
         """
@@ -37,6 +36,6 @@ class StatisticsMessageHandler(IMessageHandler):
             _LOGGER.error("StatisticsMessageHandler: Invalid message")
             return False
         
-        print(message._data)
+        await self.OnMessage(message)
         
         return True

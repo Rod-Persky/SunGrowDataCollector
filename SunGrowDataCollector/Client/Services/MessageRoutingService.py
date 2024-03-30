@@ -1,7 +1,7 @@
 import logging
 from SunGrowDataCollector.Core.BackgroundService import BackgroundService
-from SunGrowDataCollector.Services.ManagedConnection import ManagedConnection
-from SunGrowDataCollector.Core.services import IMessageRouter
+from SunGrowDataCollector.Client.Services.ManagedConnection import ManagedConnection
+from SunGrowDataCollector.Client.Handlers.IMessageRouter import IMessageRouter
 
 
 import asyncio
