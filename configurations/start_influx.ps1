@@ -8,6 +8,11 @@ if (-not $SunGrowConfigFile) {
     $SunGrowConfigFile = Join-Path $psScriptRoot "StatsDCollector.config.ini"
 }
 
+if (-not $(Test-Path $SunGrowConfigFile)) {
+    Write-Error "Configuration file not found. Please provide a valid configuration file."
+    exit
+}
+
 # Load the configuration file
 $INFLUX_TOKEN = ""
 
