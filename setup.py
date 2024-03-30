@@ -22,7 +22,7 @@ setup(
     
     extras_require = {
         "statsd": ["statsd>=4.0.1"],
-        "otel": ["opentelemetry-api==1.24.0","opentelemetry-sdk==1.24.0","opentelemetry-exporter-otlp-proto-grpc==1.24.0"]
+        "otel": ["opentelemetry-api>=1.24.0","opentelemetry-sdk>=1.24.0","opentelemetry-exporter-otlp-proto-grpc>=1.24.0"]
     },
     
     
