@@ -28,6 +28,20 @@
                 "--config",
                 "${workspaceFolder}/configurations/StatsDCollector.config.ini"
             ]
+        },
+        {
+            "name": "OTelCollector",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "SunGrowDataCollector/OTelCollector",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": [
+                "--config",
+                "${workspaceFolder}/configurations/StatsDCollector.config.ini"
+            ]
         }
     ]
 }
